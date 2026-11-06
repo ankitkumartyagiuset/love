@@ -5,7 +5,6 @@ const musicLabel = document.getElementById("musicLabel");
 
 let visitorName = "Beautiful Soul";
 let musicIsOn = false;
-let musicStartedOnNameEntry = false;
 
 function showScreen(id) {
   screens.forEach((screen) => screen.classList.add("hidden"));
@@ -49,13 +48,6 @@ document.getElementById("startButton").addEventListener("click", async () => {
 
 document.getElementById("visitorName").addEventListener("keydown", (event) => {
   if (event.key === "Enter") document.getElementById("startButton").click();
-});
-
-document.getElementById("visitorName").addEventListener("input", (event) => {
-  if (!musicStartedOnNameEntry && event.target.value.trim()) {
-    musicStartedOnNameEntry = true;
-    startMusic();
-  }
 });
 
 document.getElementById("openLetterButton").addEventListener("click", () => {
