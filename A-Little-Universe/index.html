@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090817">
+  <title>A Little Universe For You ❤️</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+
+  <button class="music-button" id="musicButton" type="button" aria-label="Turn music on">
+    ♫ <span id="musicLabel">Music: OFF</span>
+  </button>
+  <audio id="backgroundMusic" loop preload="none">
+    <source src="https://orangefreesounds.com/wp-content/uploads/2025/03/Emotional-love-piano-melody.mp3" type="audio/mpeg">
+  </audio>
+
+  <main>
+    <div class="page">
+      <section class="screen" id="welcome">
+        <span class="eyebrow">✦ A LITTLE SOMETHING SPECIAL ✦</span>
+        <span class="big-heart">♡</span>
+        <h1>Somewhere in this universe,<br><span class="gradient">there is a little magic.</span></h1>
+        <p class="subtitle">A small surprise for someone who deserves a reason to smile.</p>
+        <label class="sr-only" for="visitorName">Your name</label>
+        <input class="name-input" id="visitorName" type="text" maxlength="30" placeholder="What is your name?">
+        <button class="primary-button" id="startButton" type="button">Open your surprise ✨</button>
+        <p class="small-note">No rush. Take your time and enjoy this little moment.</p>
+      </section>
+
+      <section class="screen hidden" id="hello">
+        <span class="eyebrow">✦ A NEW LITTLE MOMENT ✦</span>
+        <h1>Hello, <span class="gradient" id="helloName">Beautiful Soul</span>!</h1>
+        <p class="subtitle">Out of all the pages on the internet, you found this one. There is a little note waiting for you.</p>
+        <button class="envelope" id="openLetterButton" type="button" aria-label="Open your letter">
+          <span>💌</span>
+        </button>
+        <p class="small-note">Tap the letter to open it.</p>
+      </section>
+
+      <section class="screen hidden" id="letter">
+        <span class="eyebrow">✦ A NOTE FROM THE HEART ✦</span>
+        <article class="letter-card">
+          <div class="flower">🌷</div>
+          <h2>Dear <span id="letterName">Friend</span>,</h2>
+          <p>The world is full of small and beautiful things.</p>
+          <p>A pretty sunset, a song you love, a kind message, or a smile that comes at the right time.</p>
+          <p>I hope life gives you many such moments. You deserve kindness, peace, good people, and happy days.</p>
+          <p>Keep smiling and keep being yourself. The world is better with your light in it.</p>
+          <div class="divider"></div>
+          <p class="signature">A little wish for you. ❤️</p>
+        </article>
+        <button class="primary-button" id="questionButton" type="button">One little question 💗</button>
+      </section>
+
+      <section class="screen hidden" id="question">
+        <span class="eyebrow">✦ JUST FOR FUN ✦</span>
+        <span class="big-heart">💗</span>
+        <h1>Can I ask you<br><span class="gradient">one thing?</span></h1>
+        <p class="question-text">Did this little surprise make you smile?</p>
+        <div class="button-row">
+          <button class="primary-button" id="yesButton" type="button">Yes! 😊</button>
+          <button class="soft-button" id="maybeButton" type="button">A little bit 🙈</button>
+        </div>
+        <p class="response-message" id="responseMessage" aria-live="polite"></p>
+      </section>
+
+      <section class="screen hidden" id="final">
+        <span class="big-heart">🌙</span>
+        <span class="eyebrow">✦ A LITTLE WISH FOR YOU ✦</span>
+        <h1>Keep being <span class="gradient">wonderful.</span></h1>
+        <p class="subtitle">May your days be full of happy moments, your nights be peaceful, and your life be full of reasons to smile.</p>
+        <p class="final-note">Some little moments can make a big memory. ❤️</p>
+        <button class="primary-button" id="downloadButton" type="button">Download your little note PDF ↓</button>
+        <p class="small-note">Save this note and keep the kind words with you.</p>
+      </section>
+
+      <footer>MADE WITH ♡ AND A LITTLE BIT OF MAGIC</footer>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
