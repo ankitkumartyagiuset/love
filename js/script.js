@@ -2,6 +2,8 @@ const screens = document.querySelectorAll(".screen");
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 const musicLabel = document.getElementById("musicLabel");
+const downloadButton = document.getElementById("downloadButton");
+const downloadStatus = document.getElementById("downloadStatus");
 
 let visitorName = "Beautiful Soul";
 let musicIsOn = false;
@@ -18,10 +20,12 @@ async function startMusic() {
     musicIsOn = true;
     musicLabel.textContent = "Music: ON";
     musicButton.setAttribute("aria-label", "Turn music off");
+    musicButton.setAttribute("aria-pressed", "true");
   } catch (error) {
     musicIsOn = false;
     musicLabel.textContent = "Tap for music";
     musicButton.setAttribute("aria-label", "Turn music on");
+    musicButton.setAttribute("aria-pressed", "false");
   }
 }
 
@@ -31,6 +35,7 @@ musicButton.addEventListener("click", async () => {
     musicIsOn = false;
     musicLabel.textContent = "Music: OFF";
     musicButton.setAttribute("aria-label", "Turn music on");
+    musicButton.setAttribute("aria-pressed", "false");
   } else {
     await startMusic();
   }
@@ -73,7 +78,11 @@ document.getElementById("maybeButton").addEventListener("click", () => {
   answer("A little smile is a lovely start. Hope your day gets even better! 🌸");
 });
 
-document.getElementById("downloadButton").addEventListener("click", async () => {
+downloadButton.addEventListener("click", async () => {
+  if (downloadButton.disabled) return;
+  downloadButton.disabled = true;
+  downloadButton.textContent = "Preparing your note…";
+  downloadStatus.textContent = "Your note is being created.";
   try {
     const pdf = await createNotePdf(visitorName);
     const url = URL.createObjectURL(new Blob([pdf], { type: "application/pdf" }));
@@ -84,9 +93,13 @@ document.getElementById("downloadButton").addEventListener("click", async () => 
     link.click();
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    downloadButton.textContent = "Note downloaded ✓";
+    downloadStatus.textContent = "Keep it somewhere special.";
   } catch (error) {
     console.error("Could not create the note PDF.", error);
-    window.alert("The PDF could not be created. Please try again.");
+    downloadButton.disabled = false;
+    downloadButton.textContent = "Download your little note PDF ↓";
+    downloadStatus.textContent = "The note could not be created. Please try again.";
   }
 });
 

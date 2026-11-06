@@ -12,7 +12,7 @@
   <div class="glow glow-one"></div>
   <div class="glow glow-two"></div>
 
-  <button class="music-button" id="musicButton" type="button" aria-label="Turn music on">
+  <button class="music-button" id="musicButton" type="button" aria-label="Turn music on" aria-pressed="false">
     ♫ <span id="musicLabel">Music: OFF</span>
   </button>
   <audio id="backgroundMusic" loop preload="none">
@@ -27,7 +27,7 @@
         <h1>Somewhere in this universe,<br><span class="gradient">there is a little magic.</span></h1>
         <p class="subtitle">A small surprise for someone who deserves a reason to smile.</p>
         <label class="sr-only" for="visitorName">Your name</label>
-        <input class="name-input" id="visitorName" type="text" maxlength="30" placeholder="What is your name?">
+        <input class="name-input" id="visitorName" type="text" maxlength="30" autocomplete="given-name" placeholder="What is your name?">
         <button class="primary-button" id="startButton" type="button">Open your surprise ✨</button>
         <p class="small-note">No rush. Take your time and enjoy this little moment.</p>
       </section>
@@ -76,6 +76,7 @@
         <p class="subtitle">May your days be full of happy moments, your nights be peaceful, and your life be full of reasons to smile.</p>
         <p class="final-note">Some little moments can make a big memory. ❤️</p>
         <button class="primary-button" id="downloadButton" type="button">Download your little note PDF ↓</button>
+        <p class="download-status" id="downloadStatus" aria-live="polite"></p>
         <p class="small-note">Save this note and keep the kind words with you.</p>
       </section>
 
